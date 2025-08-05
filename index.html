@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Test Your Knowledge</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>Quiz Master</h1>
+                </div>
+                <p class="subtitle">Test your knowledge across multiple categories</p>
+                
+                <div class="category-selection">
+                    <h2>Choose a Category</h2>
+                    <div class="categories">
+                        <div class="category-card" data-category="general">
+                            <i class="fas fa-globe"></i>
+                            <h3>General Knowledge</h3>
+                            <p>Test your general knowledge</p>
+                        </div>
+                        <div class="category-card" data-category="science">
+                            <i class="fas fa-atom"></i>
+                            <h3>Science</h3>
+                            <p>Explore scientific facts</p>
+                        </div>
+                        <div class="category-card" data-category="history">
+                            <i class="fas fa-landmark"></i>
+                            <h3>History</h3>
+                            <p>Journey through time</p>
+                        </div>
+                        <div class="category-card" data-category="technology">
+                            <i class="fas fa-microchip"></i>
+                            <h3>Technology</h3>
+                            <p>Modern tech knowledge</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="difficulty-selection">
+                    <h2>Select Difficulty</h2>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                        <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                    </div>
+                </div>
+
+                <button id="start-quiz" class="start-btn">
+                    <i class="fas fa-play"></i>
+                    Start Quiz
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span id="current-question">1</span> / <span id="total-questions">10</span>
+                </div>
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="time-left">30</span>s
+                </div>
+                <div class="score">
+                    <i class="fas fa-star"></i>
+                    <span id="current-score">0</span>
+                </div>
+            </div>
+
+            <div class="quiz-content">
+                <div class="question-container">
+                    <h2 id="question-text">Loading question...</h2>
+                </div>
+
+                <div class="options-container">
+                    <div class="option" data-index="0">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Loading...</span>
+                    </div>
+                    <div class="option" data-index="1">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Loading...</span>
+                    </div>
+                    <div class="option" data-index="2">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">Loading...</span>
+                    </div>
+                    <div class="option" data-index="3">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">Loading...</span>
+                    </div>
+                </div>
+
+                <div class="quiz-controls">
+                    <button id="next-btn" class="next-btn" disabled>
+                        Next Question <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <div class="results-header">
+                    <h1>Quiz Complete!</h1>
+                    <div class="final-score">
+                        <span id="final-score">0</span> / <span id="total-score">10</span>
+                    </div>
+                    <div class="score-percentage">
+                        <span id="score-percentage">0%</span>
+                    </div>
+                </div>
+
+                <div class="score-breakdown">
+                    <div class="score-item">
+                        <i class="fas fa-check-circle correct"></i>
+                        <span>Correct: <span id="correct-answers">0</span></span>
+                    </div>
+                    <div class="score-item">
+                        <i class="fas fa-times-circle incorrect"></i>
+                        <span>Incorrect: <span id="incorrect-answers">0</span></span>
+                    </div>
+                    <div class="score-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Time: <span id="total-time">0</span>s</span>
+                    </div>
+                </div>
+
+                <div class="performance-message">
+                    <h3 id="performance-title">Great Job!</h3>
+                    <p id="performance-message">You did well on this quiz!</p>
+                </div>
+
+                <div class="results-actions">
+                    <button id="retry-btn" class="action-btn">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                    <button id="new-category-btn" class="action-btn">
+                        <i class="fas fa-list"></i>
+                        New Category
+                    </button>
+                    <button id="share-btn" class="action-btn">
+                        <i class="fas fa-share"></i>
+                        Share Score
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen">
+            <div class="loading-content">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <h2>Loading Quiz...</h2>
+                <p>Preparing your questions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <span id="notification-message"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
